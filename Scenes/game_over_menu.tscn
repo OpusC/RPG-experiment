@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce23hccmwdk58"]
+
+[ext_resource type="FontFile" uid="uid://d3b1ryw07jrh0" path="res://Art/MaldiniBold.ttf" id="1_j2qca"]
+[ext_resource type="Script" path="res://Scenes/game_over_menu.gd" id="1_vo0j3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fagcy"]
+bg_color = Color(0.294118, 0.235294, 0.4, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fcrh"]
+bg_color = Color(0.341176, 0, 0.388235, 1)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_vo0j3")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fagcy")
+
+[node name="ResultLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.5
+offset_top = -12.5
+offset_right = 133.5
+offset_bottom = 57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_j2qca")
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = 125.0
+offset_right = 90.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_j2qca")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_0fcrh")
+text = "Try Again?"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
